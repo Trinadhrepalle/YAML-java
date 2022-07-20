@@ -5,16 +5,14 @@
 trigger:
 - trinadh
 stages:
-
 - stage: Build
-  displayName: Build and push stage
+  displayName: Build and test stage
   jobs:  
   - job: Build
     displayName: Build job
     pool:
       vmImage: Default
     steps:
-    
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'

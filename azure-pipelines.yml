@@ -2,8 +2,6 @@
 # Start with a minimal pipeline that you can customize to build and test your code.
 # Add steps that build, run tests:
 
-trigger:
-- trinadh
 stages:
 - stage: Build
   displayName: Build and test stage

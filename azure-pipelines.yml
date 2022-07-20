@@ -1,24 +1,21 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and test your code.
+# Maven
+# Build your java project and test with apache maven
 # Add steps that build, run tests:
 
-stages:
-- stage: Build
-  displayName: Build and test stage
-  jobs:  
-  - job: Build
-    displayName: Build job
-    pool:
-      vmImage: Default
-    steps:
-    - task: Maven@3
-      inputs:
-        mavenPomFile: 'pom.xml'
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/TEST-*.xml'
-        javaHomeOption: 'JDKVersion'
-        mavenVersionOption: 'Default'
-        mavenAuthenticateFeed: false
-        effectivePomSkip: false
-        sonarQubeRunAnalysis: false
+trigger:
+- master
 
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false

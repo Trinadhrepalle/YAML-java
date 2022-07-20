@@ -10,6 +10,7 @@ pool:
 
 steps:
 - task: Maven@3
+  displayName: Build
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
@@ -19,3 +20,8 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
+- task: PublishTestResults@2
+  displayName: test results
+    inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'

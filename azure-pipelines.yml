@@ -1,6 +1,6 @@
 # Maven
-# Build your java project and test with apache maven
-# Add steps that build, run tests:
+# Build your java project with apache maven, publish Artifacts and test with Junit 
+# Add steps build, Copy files, Build Artifact and test results:
 
 trigger:
 - master
